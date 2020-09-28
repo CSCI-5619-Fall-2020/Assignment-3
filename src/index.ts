@@ -9,10 +9,13 @@ import { Vector3 } from "@babylonjs/core/Maths/math";
 import { UniversalCamera } from "@babylonjs/core/Cameras/universalCamera";
 import { PointerEventTypes, PointerInfo } from "@babylonjs/core/Events/pointerEvents";
 import { WebXRManagedOutputCanvasOptions } from "@babylonjs/core/XR";
+import { WebXRInputSource } from "@babylonjs/core/XR/webXRInputSource";
 
 // Side effects
 import "@babylonjs/loaders/glTF/2.0/glTFLoader"
 import "@babylonjs/core/Helpers/sceneHelpers";
+import "@babylonjs/inspector"
+
 
 // Note: The structure has changed since previous assignments because we need to handle the 
 // async methods used for setting up XR. In particular, "createDefaultXRExperienceAsync" 
@@ -79,6 +82,16 @@ class Game
             this.processPointer(pointerInfo);
         });
 
+        // Register event handler when controllers are added
+        xrHelper.input.onControllerAddedObservable.add((controller) => {
+            this.onControllerAdded(controller);
+        });
+
+        // Register event handler when controllers are removed
+        xrHelper.input.onControllerRemovedObservable.add((controller) => {
+            this.onControllerRemoved(controller);
+        });
+
         // Add code to create your scene here
 
     }
@@ -89,12 +102,20 @@ class Game
         switch (pointerInfo.type) {
             case PointerEventTypes.POINTERDOWN:
                 if (pointerInfo.pickInfo?.hit) {
-
-                    // Add code for selection events here
-
+                    console.log("selected mesh: " + pointerInfo.pickInfo.pickedMesh?.name);
                 }
                 break;
         }
+    }
+
+    // Event handler when controllers are added
+    private onControllerAdded(controller : WebXRInputSource) {
+        console.log("controller added: " + controller.pointer.name);
+    }
+
+    // Event handler when controllers are removed
+    private onControllerRemoved(controller : WebXRInputSource) {
+        console.log("controller removed: " + controller.pointer.name);
     }
 }
 /******* End of the Game class ******/   
