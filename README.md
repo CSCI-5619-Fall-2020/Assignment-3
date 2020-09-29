@@ -31,7 +31,7 @@ Graded out of 10 points.  Each of the parts to be added are presented in lecture
 7. The immersive scene loads correctly using the WebXR emulator and the ground appears at the correct height. (1)
 8. The project also works on the Oculus Quest. If you do not have your headset yet, then you are encouraged to send your build URL to the TA to verify that it loads correctly on the device.  Make sure to leave enough time before the deadline to receive feedback and fix any problems. (1)
 
-**Bonus Challenge:** Replace the controller meshes with custom models of your choosing. Popular choices include lightsabers, swords, magic wands, or similar objects. Hint: you will need to use an `onMeshLoadedObservable`, which is described in the Babylon [WebXR input and controller tutorial](WebXR Input and Controller support). (1)
+**Bonus Challenge:** Replace the controller meshes with custom models of your choosing. Popular choices include lightsabers, swords, magic wands, or similar objects. Hint: you will need to use an `onMeshLoadedObservable`, which is described in the [WebXR input and controller tutorial](https://doc.babylonjs.com/how_to/webxr_controllers_support#onmeshloadedobservable). (1)
 
 Make sure to document all third party assets. ***Be aware that points will be deducted for using third party assets that are not properly documented.***
 
