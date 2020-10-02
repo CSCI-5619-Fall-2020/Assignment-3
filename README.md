@@ -24,7 +24,7 @@ Graded out of 10 points.  Each of the parts to be added are presented in lecture
 
 1. The virtual environment contains at least one floor mesh for teleportation. (1)
 2. The virtual environment contains at least five mesh objects other than the ground. You are allowed to load multiple mesh objects from a single file, and you can also use `MeshBuilder`. (1)
-3. Add a [highlight layer](https://doc.babylonjs.com/how_to/highlight_layer) to your scene.  Any mesh that is selected by the controller trigger button should be highlighted using a color of your choice. (2)
+3. Add a [highlight layer](https://doc.babylonjs.com/how_to/highlight_layer) to your scene.  Any mesh that is selected by the controller trigger button should be highlighted using a color of your choice.  Note that you may need to type cast an `AbstractMesh` to a `Mesh`. (2)
 4. When the same object is selected again, it should be deselected and the highlight should be removed. (1)
 5. When a different object is selected, any currently selected object should be deselected so that only one object can be highlighted at once. (1)
 6. Attach a mesh object to your controller so that it follows your hand as you move it around. The event handlers for `onControllerAdded` and `onControllerRemoved` have already been added to your scene.  You can find the transform node for a  controller using `controller.pointer`. (2)
